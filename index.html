@@ -309,7 +309,7 @@ header.ws-head{
 .screens-row::-webkit-scrollbar{height:4px}
 .screens-row::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:2px}
 
-.screen{flex:0 0 220px;background:var(--paper);border:1px solid var(--line-2);border-radius:6px;position:relative;opacity:0;transform:translateY(12px) scale(.97);transition:transform .3s ease,border-color .25s,box-shadow .25s;box-shadow:var(--shadow)}
+.screen{flex:0 0 240px;height:230px;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-2);border-radius:6px;position:relative;opacity:0;transform:translateY(12px) scale(.97);transition:transform .3s ease,border-color .25s,box-shadow .25s;box-shadow:var(--shadow);overflow:hidden}
 .drill.open .screen{animation:screenIn .55s cubic-bezier(.2,.8,.2,1) forwards}
 .drill.open .screen:nth-child(1){animation-delay:.15s}
 .drill.open .screen:nth-child(3){animation-delay:.3s}
@@ -320,23 +320,23 @@ header.ws-head{
 .drill.open .screen:nth-child(13){animation-delay:1.05s}
 @keyframes screenIn{to{opacity:1;transform:translateY(0) scale(1)}}
 .screen:hover{border-color:var(--ember);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
-.screen .chrome{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--paper-2);border-bottom:1px solid var(--line);border-radius:5px 5px 0 0}
+.screen .chrome{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--paper-2);border-bottom:1px solid var(--line);border-radius:5px 5px 0 0}
 .screen .chrome .tl{display:flex;gap:5px}
 .screen .chrome .tl span{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
 .screen .chrome .url{flex:1;font-family:"Geist Mono";font-size:9px;color:var(--muted);background:var(--paper);padding:3px 8px;border-radius:2px;border:1px solid var(--line);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.screen .hd{padding:12px 14px 6px;display:flex;justify-content:space-between;align-items:baseline}
+.screen .hd{flex:0 0 auto;padding:12px 14px 6px;display:flex;justify-content:space-between;align-items:baseline}
 .screen .hd .app{font-family:"Geist",sans-serif;font-size:12px;color:var(--ink);font-weight:500}
 .screen .hd .t{font-family:"Geist Mono";font-size:10px;color:var(--ember);letter-spacing:.02em}
-.screen .body{padding:10px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.screen .body{flex:0 0 auto;padding:10px 14px 12px;display:flex;flex-direction:column;gap:6px}
 .screen .body .ln{height:6px;background:var(--paper-2);border-radius:1px;animation:shimmer 3s ease-in-out infinite}
 .screen .body .ln.w1{width:80%}
 .screen .body .ln.w2{width:60%}
 .screen .body .ln.w3{width:90%}
 .screen .body .ln.hi{background:var(--ember-soft);height:8px;width:45%}
 @keyframes shimmer{50%{opacity:.6}}
-.screen .desc{padding:11px 14px;border-top:1px dashed var(--line-2);font-family:"Geist",sans-serif;font-size:11px;line-height:1.45;color:var(--ink-2);font-weight:300;border-radius:0 0 5px 5px}
+.screen .desc{flex:1 1 auto;min-height:0;padding:11px 14px;border-top:1px dashed var(--line-2);font-family:"Geist",sans-serif;font-size:11px;line-height:1.45;color:var(--ink-2);font-weight:300;border-radius:0 0 5px 5px;overflow:hidden}
 
-.gap{flex:0 0 96px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:72px 6px 0;position:relative;gap:8px;opacity:0;animation:fadeUp .5s ease forwards}
+.gap{flex:0 0 96px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 6px;position:relative;gap:8px;opacity:0;animation:fadeUp .5s ease forwards}
 .drill.open .gap:nth-child(2){animation-delay:.25s}
 .drill.open .gap:nth-child(4){animation-delay:.4s}
 .drill.open .gap:nth-child(6){animation-delay:.55s}
