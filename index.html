@@ -9,25 +9,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#faf7f0;
+  --bg:#ffffff;
   --paper:#ffffff;
-  --paper-2:#f3ede0;
-  --ink:#1a1611;
-  --ink-2:#3d352a;
-  --muted:#8a8170;
-  --dim:#b9b0a0;
-  --line:#e8e1d2;
-  --line-2:#d6cdb9;
-  --ember:#c94a0a;
-  --ember-soft:#f5c088;
-  --ember-wash:#fef0e2;
+  --paper-2:#f5f7fb;
+  --ink:#0f1d4a;
+  --ink-2:#3a4a6e;
+  --muted:#6b7590;
+  --dim:#a8b0c2;
+  --line:#e4e8ef;
+  --line-2:#cfd5e0;
+  --ember:#fe4811;
+  --ember-soft:#ff9168;
+  --ember-wash:#fff1ec;
+  --ember-hover:#e53d08;
   --wheat:#c9a361;
-  --moss:#6b8f4e;
-  --moss-wash:#e8efdd;
-  --crimson:#a6402e;
-  --crimson-wash:#f7e4df;
-  --shadow:0 1px 2px rgba(26,22,17,.04),0 4px 14px rgba(26,22,17,.04);
-  --shadow-lg:0 2px 4px rgba(26,22,17,.05),0 12px 32px rgba(26,22,17,.08);
+  --moss:#2d7a4a;
+  --moss-wash:#e4f0e8;
+  --crimson:#b8362a;
+  --crimson-wash:#fbe7e3;
+  /* pyze functional status palette — from the brand mark */
+  --pyze-peach:#e88a2e;
+  --pyze-peach-wash:#fdf1e0;
+  --pyze-cyan:#2ba8b6;
+  --pyze-cyan-wash:#e1f4f6;
+  --pyze-pink:#b83d70;
+  --pyze-pink-wash:#faebf1;
+  --pyze-lime:#7ea82e;
+  --pyze-lime-wash:#eef5dc;
+  /* navy sidebar palette */
+  --navy:#0f1d4a;
+  --navy-2:#1a2b5f;
+  --navy-3:#26397a;
+  --navy-ink:#e8ecf7;
+  --navy-muted:#8a95b5;
+  --navy-dim:#5a6690;
+  --shadow:0 1px 2px rgba(15,29,74,.04),0 4px 14px rgba(15,29,74,.06);
+  --shadow-lg:0 2px 4px rgba(15,29,74,.06),0 12px 32px rgba(15,29,74,.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -39,44 +56,43 @@ html,body{background:var(--bg);color:var(--ink);font-family:"Geist",ui-sans-seri
 
 /* SIDEBAR */
 aside.sidebar{
-  border-right:1px solid var(--line);background:var(--paper);
-  display:flex;flex-direction:column;position:sticky;top:0;height:100vh;
+  border-right:1px solid var(--navy-2);background:var(--navy);
+  display:flex;flex-direction:column;position:sticky;top:0;height:100vh;color:var(--navy-ink);
 }
-.brand{padding:22px 22px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
-.brand-mark{width:22px;height:22px;position:relative}
-.brand-mark::before,.brand-mark::after{content:"";position:absolute;inset:0;border:1px solid var(--ink)}
-.brand-mark::after{transform:rotate(45deg);border-color:var(--ember)}
-.brand-name{font-family:"Instrument Serif";font-size:22px;letter-spacing:.01em}
-.brand-name em{color:var(--ember);font-style:italic}
+.brand{padding:20px 20px 18px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--navy-2)}
+.brand-mark{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.brand-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.brand-name{font-family:"Instrument Serif";font-size:22px;letter-spacing:.01em;color:var(--navy-ink);line-height:1}
+.brand-name em{font-style:italic;background:linear-gradient(135deg,var(--pyze-peach),var(--pyze-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
 .ws-switcher{
-  margin:14px 14px 0;padding:10px 12px;border:1px solid var(--line);border-radius:6px;
+  margin:14px 14px 0;padding:10px 12px;border:1px solid var(--navy-2);border-radius:6px;background:var(--navy-2);
   display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background .2s;
 }
-.ws-switcher:hover{background:var(--paper-2)}
-.ws-switcher .ws-name{font-size:12px;color:var(--ink);font-weight:500}
-.ws-switcher .ws-meta{font-family:"Geist Mono";font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-.ws-switcher .chev{color:var(--dim);font-size:10px}
+.ws-switcher:hover{background:var(--navy-3)}
+.ws-switcher .ws-name{font-size:12px;color:var(--navy-ink);font-weight:500}
+.ws-switcher .ws-meta{font-family:"Geist Mono";font-size:9px;color:var(--navy-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.ws-switcher .chev{color:var(--navy-dim);font-size:10px}
 
 nav.sidenav{padding:18px 10px;display:flex;flex-direction:column;gap:1px;flex:1;overflow-y:auto}
-.nav-group{font-family:"Geist Mono";font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);padding:14px 12px 6px}
+.nav-group{font-family:"Geist Mono";font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-dim);padding:14px 12px 6px}
 .nav-item{
   display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:5px;
-  font-size:13px;color:var(--ink-2);text-decoration:none;cursor:pointer;transition:all .15s;position:relative
+  font-size:13px;color:var(--navy-ink);text-decoration:none;cursor:pointer;transition:all .15s;position:relative;opacity:.78
 }
-.nav-item:hover{background:var(--paper-2);color:var(--ink)}
-.nav-item.active{background:var(--ember-wash);color:var(--ember)}
+.nav-item:hover{background:var(--navy-2);opacity:1}
+.nav-item.active{background:var(--navy-2);color:var(--ember);opacity:1}
 .nav-item.active::before{content:"";position:absolute;left:-10px;top:8px;bottom:8px;width:2px;background:var(--ember);border-radius:2px}
 .nav-item .ico{width:14px;height:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .nav-item .ico svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5}
-.nav-item .badge{margin-left:auto;font-family:"Geist Mono";font-size:9px;background:var(--ember);color:var(--paper);padding:2px 6px;border-radius:8px;letter-spacing:.02em}
-.nav-item.active .badge{background:var(--ember);color:var(--paper)}
-.nav-item .kbd{margin-left:auto;font-family:"Geist Mono";font-size:9px;color:var(--dim);letter-spacing:.04em;background:var(--paper-2);padding:2px 5px;border-radius:3px;border:1px solid var(--line)}
+.nav-item .badge{margin-left:auto;font-family:"Geist Mono";font-size:9px;background:var(--ember);color:#fff;padding:2px 6px;border-radius:8px;letter-spacing:.02em;font-weight:500}
+.nav-item.active .badge{background:var(--ember);color:#fff}
+.nav-item .kbd{margin-left:auto;font-family:"Geist Mono";font-size:9px;color:var(--navy-muted);letter-spacing:.04em;background:var(--navy-3);padding:2px 5px;border-radius:3px;border:1px solid var(--navy-2)}
 
-.user-foot{border-top:1px solid var(--line);padding:14px;display:flex;align-items:center;gap:10px}
-.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--wheat));display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:"Instrument Serif";font-size:15px;font-style:italic;flex-shrink:0}
-.user-foot .u .n{font-size:12px;color:var(--ink);font-weight:500;line-height:1.2}
-.user-foot .u .r{font-family:"Geist Mono";font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
-.user-foot .more{margin-left:auto;color:var(--dim);cursor:pointer;padding:6px}
+.user-foot{border-top:1px solid var(--navy-2);padding:14px;display:flex;align-items:center;gap:10px}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--ember-soft));display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Instrument Serif";font-size:15px;font-style:italic;flex-shrink:0;box-shadow:0 0 0 2px rgba(254,72,17,.15)}
+.user-foot .u .n{font-size:12px;color:var(--navy-ink);font-weight:500;line-height:1.2}
+.user-foot .u .r{font-family:"Geist Mono";font-size:9px;color:var(--navy-muted);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.user-foot .more{margin-left:auto;color:var(--navy-dim);cursor:pointer;padding:6px}
 
 /* ─────────── WORKSPACE ─────────── */
 main.workspace{display:flex;flex-direction:column;min-width:0}
@@ -126,8 +142,8 @@ header.ws-head{
   font-family:"Geist",sans-serif
 }
 .chip-btn:hover{border-color:var(--line-2);color:var(--ink)}
-.chip-btn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.chip-btn.primary:hover{background:var(--ember);border-color:var(--ember)}
+.chip-btn.primary{background:var(--ember);border-color:var(--ember);color:#fff;font-weight:500}
+.chip-btn.primary:hover{background:var(--ember-hover);border-color:var(--ember-hover)}
 .chip-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5}
 
 /* KPI TILES */
@@ -377,11 +393,12 @@ table.queue .bignum em{font-style:italic;color:var(--ember)}
 table.queue .mini{font-family:"Geist Mono";font-size:10px;color:var(--muted);letter-spacing:.04em}
 .status{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:10px;font-family:"Geist Mono";font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
 .status .s-dot{width:6px;height:6px;border-radius:50%}
-.status.ready{background:var(--moss-wash);color:var(--moss)} .status.ready .s-dot{background:var(--moss)}
-.status.design{background:var(--ember-wash);color:var(--ember)} .status.design .s-dot{background:var(--ember)}
-.status.discovery{background:#eef1ef;color:var(--ink-2)} .status.discovery .s-dot{background:var(--muted)}
-.status.blocked{background:var(--crimson-wash);color:var(--crimson)} .status.blocked .s-dot{background:var(--crimson)}
-.status.scoping{background:#f5efdf;color:var(--wheat)} .status.scoping .s-dot{background:var(--wheat)}
+/* status pills use the pyze brand palette — each loop of the mark maps to a stage */
+.status.ready{background:var(--pyze-lime-wash);color:var(--pyze-lime)} .status.ready .s-dot{background:var(--pyze-lime)}
+.status.design{background:var(--pyze-peach-wash);color:var(--pyze-peach)} .status.design .s-dot{background:var(--pyze-peach)}
+.status.discovery{background:var(--pyze-cyan-wash);color:var(--pyze-cyan)} .status.discovery .s-dot{background:var(--pyze-cyan)}
+.status.blocked{background:var(--pyze-pink-wash);color:var(--pyze-pink)} .status.blocked .s-dot{background:var(--pyze-pink)}
+.status.scoping{background:#eef1f7;color:var(--ink-2)} .status.scoping .s-dot{background:var(--muted)}
 .owner-cell{display:flex;align-items:center;gap:8px}
 .owner-avatar{width:22px;height:22px;border-radius:50%;background:var(--paper-2);color:var(--ink-2);font-family:"Geist Mono";font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:500;letter-spacing:0;flex-shrink:0}
 .oa-1{background:linear-gradient(135deg,#d9b5e0,#a66bb2);color:var(--paper)}
@@ -411,7 +428,7 @@ table.queue tbody tr:hover .row-action{color:var(--ember)}
   <!-- ═════════ SIDEBAR ═════════ -->
   <aside class="sidebar">
     <div class="brand">
-      <div class="brand-mark"></div>
+      <div class="brand-mark"><img src="pyze_logo.png" alt="pyze" /></div>
       <div class="brand-name">py<em>z</em>e</div>
     </div>
 
